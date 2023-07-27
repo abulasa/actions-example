@@ -1,27 +1,27 @@
 name: First Workflow
 on: [push]
 jobs:
-  runs-shell-command-job:
+  job1-runs-shell-command:
     runs-on: ubuntu-latest
     steps:
-      - name: echo-step
+      - name: step1 echo
         run: echo "Hello"
-      - name: run-multiple-step
+      - name: step2 run-multiple
         run: |
           mvn -v
           java --version
-      - name: python command
+      - name: step3 python command
         run: |
           import platform
           print(platform.processor())
         shell: python
-  runs-windows-commands-job:
+  job2-runs-windows-commands-job:
     runs-on: windows-latest
-    needs: [runs-shell-command-job]
+    needs: [job1-runs-shell-command]
     steps:
-        - name: Directory Powershell
+        - name: step1 Directory Powershell
           run: Get-Location
-        - name: Directory Bash
+        - name: step 2Directory Bash
           run: pwd
           shell: bash
 
