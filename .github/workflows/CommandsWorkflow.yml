@@ -1,4 +1,4 @@
-name: First Workflow
+name: Terminal Commands Workflow
 on: [push]
 jobs:
   job1-runs-shell-command:
