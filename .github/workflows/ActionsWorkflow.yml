@@ -1,4 +1,4 @@
-name: steps-as-actions-Workflow
+name: Actions as Steps Workflow
 on: [push]
 jobs:
   run-github-actions:
