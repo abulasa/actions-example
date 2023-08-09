@@ -17,6 +17,7 @@ jobs:
         shell: python
   job2-runs-windows-commands-job:
     runs-on: windows-latest
+    needs: [job1-runs-shell-command]
     steps:
         - name: step1 Directory Powershell
           run: Get-Location
