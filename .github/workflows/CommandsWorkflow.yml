@@ -1,5 +1,6 @@
 name: Terminal Commands Workflow
-on: [push]
+on: 
+  repository_dispatch
 jobs:
   job1-runs-shell-command:
     runs-on: ubuntu-latest
