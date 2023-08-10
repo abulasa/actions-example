@@ -1,0 +1,31 @@
+name: steps-as-actions-Workflow
+on:
+  push:
+    branches:
+      - master
+      - 'feature/*' # * matches alles ohne /
+      - 'feature/**' # matches alles mit slashes (feature/mybranch/xyz)
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: list files
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{github.token}}"
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Miro
+      - name: Log Greeting Time
+        run: echo "${{steps.greet.outputs.time}}"
+
+
